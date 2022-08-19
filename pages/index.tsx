@@ -8,7 +8,7 @@ const Home: NextPage<{ liff: Liff | null; liffError: string | null }> = ({
   liffError
 }) => {
 
-  const userProfile = liff?.getProfile();
+
   return (
     <div>
       <Head>
@@ -35,7 +35,7 @@ const Home: NextPage<{ liff: Liff | null; liffError: string | null }> = ({
         >
           LIFF Documentation
         </a>
-        {console.log(userProfile)}
+        
 
 
       </main>

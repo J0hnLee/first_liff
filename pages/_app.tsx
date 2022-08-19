@@ -16,10 +16,32 @@ function MyApp({ Component, pageProps }: AppProps) {
         console.log("LIFF init...");
         liff
           .init({ liffId: process.env.NEXT_PUBLIC_LIFF_ID! })
-          .then(() => {
-            console.log("LIFF init succeeded.");
-            setLiffObject(liff);
-          })
+          .then(
+          //   () => {
+          //   console.log("LIFF init succeeded.");
+            
+          //   setLiffObject(liff);
+          // }
+          () => {
+            if (!liff.isLoggedIn()) {
+             alert("用戶未登入");
+             liff.login();
+            } else {
+             alert("用戶已登入");
+             liff.getProfile()
+             .then(profile => {
+              const name = profile.displayName
+             })
+             .catch((err) => {
+              console.log('error', err);
+             });
+            }
+          }
+          
+     
+          
+          
+          )
           .catch((error: Error) => {
             console.log("LIFF init failed.");
             setLiffError(error.toString());
