@@ -31,16 +31,13 @@ function MyApp({ Component, pageProps }: AppProps) {
              liff.getProfile()
              .then(profile => {
               const name = profile.displayName
+              console.log(name);
              })
              .catch((err) => {
               console.log('error', err);
              });
             }
           }
-          
-     
-          
-          
           )
           .catch((error: Error) => {
             console.log("LIFF init failed.");
